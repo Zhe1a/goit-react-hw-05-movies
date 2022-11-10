@@ -27,9 +27,9 @@ export const AppMovies = (query, page = 1) => {
     .then(({ data }) => data);
 };
 
-export const AppMovieDetails = id => {
+export const AppMovieDetails = movieId => {
   return axios
-    .get(`movie/${id}?api_key=${KEY}&language=en-US`)
+    .get(`movie/${movieId}?api_key=${KEY}&language=en-US`)
     .then(({ data }) => data);
 };
 export const AppMovieCast = id => {

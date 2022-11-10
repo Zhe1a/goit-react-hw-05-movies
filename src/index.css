@@ -26,3 +26,6 @@ nav{
   margin-right: 15px;
   justify-content: center;
 }
+a{
+  text-decoration: none;
+}

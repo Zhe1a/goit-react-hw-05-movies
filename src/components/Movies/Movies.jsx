@@ -8,11 +8,13 @@ const Movies = () => {
   const [results, setResults] = useState([]);
   useEffect(() => {
     if (submit === '') return;
-    AppMovies(submit).then(res => {
-      setResults(res.results);
-    });
+    AppMovies(submit)
+      .then(res => {
+        setResults(res.results);
+      })
+      .catch(error => console.log(error.message));
   }, [submit]);
-  console.log(results);
+
   return (
     <div>
       <form
