@@ -8,15 +8,12 @@ const Home = () => {
   const [error, setError] = useState();
 
   useEffect(() => {
-
-    console.log('world');
     AppHome()
       .then(({ results }) => {
-        console.log(results);
         setList(results);
       })
       .catch(error => setError(error.message));
-  }, []);
+  }, [error]);
 
   return (
     <div>
@@ -25,9 +22,11 @@ const Home = () => {
       </div>
       {list.length > 0 ? (
         <ul>
-          {list.map(({ title, id, backdrop_path, name }) => {
+          {list.map(({ title, id, backdrop_path, name, }) => {
             return (
               <ListMovies
+               
+                id={id}
                 key={id}
                 title={title}
                 posterPath={backdrop_path}

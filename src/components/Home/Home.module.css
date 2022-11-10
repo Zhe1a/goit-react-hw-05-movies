@@ -21,6 +21,7 @@ ul {
   padding: 0;
   font-size: 21px;
   justify-content: center;
+ 
   display: flex;
 }
 .title_error {

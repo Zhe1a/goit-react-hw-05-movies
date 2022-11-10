@@ -1,8 +1,13 @@
+import { AppMovieDetails } from 'components/AppThemoviedb/AppMovies';
+
+import { Link } from 'react-router-dom';
 import s from './ListMovies.module.css';
-const ListMovies = ({ title, name }) => {
+const ListMovies = ({ title, name, id, }) => {
   return (
     <li className={s.list}>
-      <p className={s.title}>{title ?? name}</p>
+      <Link to={`/movies/${id}`}>
+        <p className={s.link}> {title ?? name}</p>
+      </Link>
     </li>
   );
 };

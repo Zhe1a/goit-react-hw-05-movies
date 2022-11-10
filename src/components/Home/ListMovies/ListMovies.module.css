@@ -2,11 +2,24 @@
     margin-top: 15px;
     border: 1px solid #555;
     padding: 0;
+    justify-content: center;
+    text-align: center;
+    display: flex;
 list-style: none;
+align-items: center;
 }
 .title{
   justify-content: center;
   display: flex;
     margin: 0;
     padding: 0;
+    border: none;
+    background: transparent;
+}
+
+.link{
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  color: black;
 }

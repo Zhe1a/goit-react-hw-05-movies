@@ -1,4 +1,4 @@
-import {AppMovies} from 'components/AppThemoviedb/AppMovies';
+import { AppMovies } from 'components/AppThemoviedb/AppMovies';
 import ListMovies from 'components/Home/ListMovies/ListMovies';
 import { useState, useEffect } from 'react';
 
@@ -28,15 +28,8 @@ const Movies = () => {
         />
         <button type="submit">Search</button>
       </form>
-      {results.map(({ title, id, backdrop_path, name }) => {
-        return (
-          <ListMovies
-            key={id}
-            title={title}
-            posterPath={backdrop_path}
-            name={name}
-          />
-        );
+      {results.map(({ title, id, name }) => {
+        return <ListMovies id={id} key={id} title={title} name={name} />;
       })}
     </div>
   );
