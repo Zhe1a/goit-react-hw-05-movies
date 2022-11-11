@@ -12,6 +12,7 @@ const MovieDetails = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
+
   const getYear = () => new Date(movie.release_date).getFullYear();
   let activeClassName = {
     color: '#2196f3',
@@ -26,7 +27,9 @@ const MovieDetails = () => {
       .catch(error => setError(error.message))
       .finally(() => setLoading(false));
   }, [movieId]);
+
   const handleClick = () => navigate(location?.state?.from ?? '/');
+
   return (
     <div>
       <button onClick={handleClick} className={s.backButton}>
