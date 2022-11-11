@@ -1,6 +1,7 @@
-import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
-import styled from 'styled-components';
+
+import { StyledLink } from './StyledLink/StyledLink';
 
 const Home = lazy(() => {
   return import('./Home/Home');
@@ -24,12 +25,6 @@ const MoviesReviews = lazy(() => {
   // import MoviesReviews from './MoviesReviews/MoviesReviews';
 });
 export const App = () => {
-  const StyledLink = styled(NavLink)`
-    color: black;
-    &.active {
-      color: orange;
-    }
-  `;
   return (
     <>
       <nav>
@@ -44,9 +39,14 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/movies" element={<Movies />} />
-          <Route path="/movies/:movieId" element={<MovieDetails />} />
-          <Route path="/movies/:movieId/cast" element={<MoviesCast />} />
-          <Route path="/movies/:movieId/reviews" element={<MoviesReviews />} />
+          <Route path="/movies/:movieId" element={<MovieDetails />}>
+            <Route path="/movies/:movieId/cast" element={<MoviesCast />} />
+            <Route
+              path="/movies/:movieId/reviews"
+              element={<MoviesReviews />}
+            />
+            {/* <Route path="*" element={<Navigate to="/movies" />} /> */}
+          </Route>
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Suspense>

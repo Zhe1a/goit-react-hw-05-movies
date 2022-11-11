@@ -2,6 +2,7 @@ import { AppMovieCast } from 'components/AppThemoviedb/AppMovies';
 import { useEffect, useState } from 'react';
 import {  useParams } from 'react-router-dom';
 import s from './MoviesCast.module.css';
+
 const MoviesCast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState([]);
@@ -17,6 +18,7 @@ const MoviesCast = () => {
       .catch(error => setError(error.message))
       .finally(() => setLoading(false));
   }, [movieId]);
+
   return (
     <>
       {loading && 'Loading...'}
@@ -28,6 +30,7 @@ const MoviesCast = () => {
               <img
                 src={`https://image.tmdb.org/t/p/w300${castItem.profile_path}`}
                 alt={`${castItem.name} portrait`}
+                className={s.img}
               />
               <div>
                 <p>Name: {castItem.name}</p>

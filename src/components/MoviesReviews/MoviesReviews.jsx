@@ -1,7 +1,6 @@
 import { AppMovieReviews } from 'components/AppThemoviedb/AppMovies';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import s from './MoviesReviews.module.css';
 
 const MoviesReviews = () => {
   const { movieId } = useParams();
@@ -16,7 +15,7 @@ const MoviesReviews = () => {
       .catch(error => setError(error.message))
       .finally(() => setLoading(false));
   }, [movieId]);
-  
+ 
   return (
     <>
       {loading && 'Loading...'}

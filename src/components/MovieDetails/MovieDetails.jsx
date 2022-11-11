@@ -1,13 +1,8 @@
 import { AppMovieDetails } from 'components/AppThemoviedb/AppMovies';
 import s from './MovieDetails.module.css';
 import { useEffect, useState } from 'react';
-import {
-  NavLink,
-  Outlet,
-  useLocation,
-  useNavigate,
-  useParams,
-} from 'react-router-dom';
+import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { StyledLink } from 'components/StyledLink/StyledLink';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -63,21 +58,21 @@ const MovieDetails = () => {
       <div className={s.box}>
         <h2>Additional Information</h2>
         <div className={s.box_link}>
-          <NavLink
+          <StyledLink
             to={`/movies/${movieId}/reviews`}
             style={({ isActive }) => (isActive ? activeClassName : undefined)}
             state={location.state}
           >
             <p className={s.reviews}>Reviews</p>
-          </NavLink>
+          </StyledLink>
 
-          <NavLink
+          <StyledLink
             to={`/movies/${movieId}/cast`}
-            style={({ isActive }) => (isActive ? activeClassName : undefined)  }
+            style={({ isActive }) => (isActive ? activeClassName : undefined)}
             state={location.state}
           >
             <p className={s.cast}>Cast</p>
-          </NavLink>
+          </StyledLink>
         </div>
         <hr />
         <Outlet />
