@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import s from './ListMovies.module.css';
 
@@ -19,5 +20,9 @@ const ListMovies = ({ title, name, id }) => {
     </li>
   );
 };
-
+ListMovies.propTypes = {
+  title: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  id: PropTypes.number.isRequired,
+};
 export default ListMovies;
